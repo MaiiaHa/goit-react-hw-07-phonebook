@@ -11,19 +11,13 @@ const ContactList = () => {
 
   const contactsFromState = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  // console.log(filter);
 
   const getVisibleContacts = () => {
-    const normalizedFilter = Object.values(filter).join();
-    // const data = normalizedFilter.join().toLowerCase();
-    console.log(normalizedFilter);
-
-    return contactsFromState.filter(contact => {
-      // console.log(contact.name.toLowerCase());
-      return contact.name.includes(normalizedFilter);
-    });
+    const normalizedFilter = Object.values(filter).join().toLowerCase();
+    return contactsFromState.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
   };
-  //.toLowerCase()
 
   const contacts = getVisibleContacts();
 
