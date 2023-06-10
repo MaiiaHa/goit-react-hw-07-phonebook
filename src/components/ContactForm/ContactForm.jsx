@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { FaUserPlus, FaTty, FaUserAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/slice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
@@ -31,7 +31,7 @@ const ContactForm = () => {
       addContact({
         id: nanoid(5),
         name: form.elements.name.value,
-        number: form.elements.number.value,
+        phone: form.elements.number.value,
       })
     );
     form.reset();
